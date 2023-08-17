@@ -11,11 +11,11 @@ function setupTypewriter(t) {
         tag = "",
         writingTag = false,
         tagOpen = false,
-        typeSpeed = 0,
-      tempTypeSpeed = 0;
+        typeSpeed = 120,
+        tempTypeSpeed = 0;
 
     var type = function() {
-      
+
         if (writingTag === true) {
             tag += HTML[cursorPosition];
         }
@@ -37,15 +37,15 @@ function setupTypewriter(t) {
         }
         if (!writingTag && !tagOpen) {
             if (HTML[cursorPosition] === " ") {
-                tempTypeSpeed = (Math.random() * typeSpeed) * 0.01;
+                tempTypeSpeed = (Math.random() * typeSpeed) * 0.1 + 1;
             }
             else {
-                tempTypeSpeed = (Math.random() * typeSpeed * 0.01);
+                tempTypeSpeed = (Math.random() * typeSpeed * 0.3 + 1);
             }
             t.innerHTML += HTML[cursorPosition];
         }
         if (writingTag === true && HTML[cursorPosition] === ">") {
-            tempTypeSpeed = (Math.random() * typeSpeed * 0.01);
+            tempTypeSpeed = (Math.random() * typeSpeed * 0.5 + 1);
             writingTag = false;
             if (tagOpen) {
                 var newSpan = document.createElement("span");
@@ -54,7 +54,7 @@ function setupTypewriter(t) {
                 tag = newSpan.firstChild;
             }
         }
-        tempTypeSpeed = tempTypeSpeed * .01
+
         cursorPosition += 1;
         if (cursorPosition < HTML.length - 1) {
             setTimeout(type, tempTypeSpeed);
