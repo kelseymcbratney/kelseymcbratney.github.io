@@ -1,16 +1,63 @@
 ---
-layout: page
+layout: default
 ---
 
 {% include lang.html %}
-{% include typewriter.html %}
+{% include origin-type.html %}
 
-<pre id="typewriter">
-  <span class="var-highlight">var</span> object = {
-      name: <span class="string-highlight">'Kelsey McBratney'</span>,
-      type: <span class="string-highlight">'Software Engineer'</span>,
-      location: <span class="string-highlight">'Denver, Colorado'</span>,
-      properties:[<span class="string-highlight">'Python'</span>,
-                  <span class="string-highlight">'AWS'</span>,
-                  <span class="string-highlight">'Kubernetes'</span>];
-}; </pre>
+{% if layout.tail_includes %}
+  {% assign has_tail = true %}
+{% endif %}
+
+<div class="row{% unless has_tail %} mb-5{% endunless %}">
+  <!-- core -->
+  <div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pe-xl-4">
+    {% capture padding %}
+      {% unless page.layout == 'home' %}px-1{% endunless %}
+    {% endcapture %}
+
+    <div class="post {{ padding | strip }} px-md-2">
+      <pre id="typewriter">
+        <span class="var-highlight">var</span> object = {
+            name: <span class="string-highlight">'Kelsey McBratney'</span>,
+            type: <span class="string-highlight">'Software Engineer'</span>,
+            location: <span class="string-highlight">'Denver, Colorado'</span>,
+            properties: [
+                <span class="string-highlight">'Javascript'</span>,
+                <span class="string-highlight">'HTML'</span>,
+                <span class="string-highlight">'CSS'</span>
+            ]
+        };
+      </pre>
+    </div>
+  </div>
+  <!-- #core-wrapper -->
+
+  <!-- panel -->
+  <div id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+    <div class="access">
+      {% include_cached update-list.html lang=lang %}
+      {% include_cached trending-tags.html lang=lang %}
+    </div>
+
+    {% for _include in layout.panel_includes %}
+      {% assign _include_path = _include | append: '.html' %}
+      {% include {{ _include_path }} lang=lang %}
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Include your JavaScript source here -->
+<script src="/assets/js/typewriter.js"></script>
+
+<!-- tail -->
+{% if has_tail %}
+  <div class="row">
+    <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-3 pe-xl-4 mt-5">
+      {% for _include in layout.tail_includes %}
+        {% assign _include_path = _include | append: '.html' %}
+        {% include {{ _include_path }} lang=lang %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

@@ -11,7 +11,7 @@ layout: compress
           tag = "",
           writingTag = false,
           tagOpen = false,
-          typeSpeed = 100,
+          typeSpeed = 25,
         tempTypeSpeed = 0;
 
       var type = function() {
@@ -40,12 +40,12 @@ layout: compress
                   tempTypeSpeed = 0;
               }
               else {
-                  tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+                  tempTypeSpeed = (Math.random() * typeSpeed) + 10;
               }
               t.innerHTML += HTML[cursorPosition];
           }
           if (writingTag === true && HTML[cursorPosition] === ">") {
-              tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+              tempTypeSpeed = (Math.random() * typeSpeed) + 10;
               writingTag = false;
               if (tagOpen) {
                   var newSpan = document.createElement("span");
