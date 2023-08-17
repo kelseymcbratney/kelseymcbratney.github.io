@@ -6,23 +6,29 @@ layout: default
 {% include origin-type.html %}
 
 <div class="row{% unless has_tail %} mb-5{% endunless %}">
-  <!-- core -->
-  <div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pe-xl-4">
-    <div class="post {{ padding | strip }} px-md-2">
-      <pre id="typewriter">
-        <span class="var-highlight">var</span> object = {
-            name: <span class="string-highlight">'Kelsey McBratney'</span>,
-            type: <span class="string-highlight">'Software Engineer'</span>,
-            location: <span class="string-highlight">'Denver, Colorado'</span>,
-            properties: [
-                <span class="string-highlight">'Javascript'</span>,
-                <span class="string-highlight">'HTML'</span>,
-                <span class="string-highlight">'CSS'</span>
-            ]
-        };
-      </pre>
-    </div>
-  </div>
+<!-- core -->
+<div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pe-xl-4">
+<div class="post {{ padding | strip }} px-md-2">
+<pre id="typewriter">
+<span class="var-highlight">class</span> <span class="class-highlight">whoami</span> = {
+  <span class="var-highlight">def</span> <span class="def-highlight">'__init__'</span>,
+    <span class="var-highlight">self</span>.name: <span class="string-highlight">'Kelsey McBratney'</span>
+    <span class="var-highlight">self</span>.type: <span class="string-highlight">'Software Engineer'</span>
+    <span class="var-highlight">self</span>.location: <span class="string-highlight">'Denver, Colorado'</span>
+
+      <span class="var-highlight">def</span> <span class="def-highlight">dev</span>(<span class="var-highlight">self</span>):
+        <span class="var-highlight">return</span> { <span class="string-highlight">'Python'</span>,
+                 <span class="string-highlight">'C++'</span>,
+                 <span class="string-highlight">'CloudFormation'</span>, }
+
+      <span class="var-highlight">def</span> <span class="def-highlight">ops</span>(<span class="var-highlight">self</span>):
+        <span class="var-highlight">return</span> { <span class="string-highlight">'AWS'</span>,
+                 <span class="string-highlight">'CI/CD'</span>,
+                 <span class="string-highlight">'Kubernetes'</span>,
+                 <span class="string-highlight">'Docker'</span>, }
+</pre>
+</div>
+</div>
   <!-- #core-wrapper -->
 
   <!-- panel -->

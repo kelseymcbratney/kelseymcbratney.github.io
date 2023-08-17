@@ -6,10 +6,19 @@
 /* append your custom style below */
 
 .var-highlight{
+  color: #c678dd;
+}
+
+.string-highlight{
   color: #80a36b;
 }
-.string-highlight{
-  color: rgba(86, 182, 194, 0.8);
+
+.def-highlight{
+  color: #4d9ca8;
+}
+
+.class-highlight{
+  color: #ceae72;
 }
 
 #typewriter{
